@@ -41,17 +41,19 @@ public class BestTax {
                     break;
                 case 3:
                     System.out.println();
-                    if (taxEarnings(earnings) > taxEarningsMinusSpendings(earnings, spendings)) {
+                    int tax1 = taxEarnings(earnings);
+                    int tax2 = taxEarningsMinusSpendings(earnings, spendings);
+                    if (tax1 > tax2) {
                         System.out.println("Мы советуем вам УСН доходы минус расходы");
-                        System.out.println("Ваш налог составит: " + taxEarningsMinusSpendings(earnings, spendings) + " рублей");
-                        System.out.println("Налог на другой системе: " + taxEarnings(earnings) + " рублей");
-                        System.out.println("Экономия: " + (taxEarnings(earnings) - taxEarningsMinusSpendings(earnings, spendings)) + " рублей");
-                    } else if (taxEarnings(earnings) < taxEarningsMinusSpendings(earnings, spendings)) {
+                        System.out.println("Ваш налог составит: " + tax2 + " рублей");
+                        System.out.println("Налог на другой системе: " + tax1 + " рублей");
+                        System.out.println("Экономия: " + (tax1 - tax2) + " рублей");
+                    } else if (tax1 < tax2) {
                         System.out.println("Мы советуем вам УСН доходы");
-                        System.out.println("Ваш налог составит: " + taxEarnings(earnings) + " рублей");
-                        System.out.println("Налог на другой системе: " + taxEarningsMinusSpendings(earnings, spendings) + " рублей");
-                        System.out.println("Экономия: " + (taxEarningsMinusSpendings(earnings, spendings) - taxEarnings(earnings)) + " рублей");
-                    }else if (taxEarnings(earnings) == taxEarningsMinusSpendings(earnings, spendings)) {
+                        System.out.println("Ваш налог составит: " + tax1 + " рублей");
+                        System.out.println("Налог на другой системе: " + tax2 + " рублей");
+                        System.out.println("Экономия: " + (tax2 - tax1) + " рублей");
+                    }else if (tax1 == tax2) {
                         System.out.println("Можете выбрать любую систему налогообложения");
                     }
                     break;
